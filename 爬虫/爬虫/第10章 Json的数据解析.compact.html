@@ -1,0 +1,703 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>第10章 Json的数据解析</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='json数据解析'><span>json数据解析</span></h1><h2 id='一json数据简介'><span>一、json数据简介</span></h2><p><span>JSON是一种非常重要的数据格式，它并不是编程语言，而是一种可以在服务器和客户端之间传输的数据格式。</span></p><p><span>JSON（JavaScript Object Notation, JS对象简谱）是一种轻量级的数据交换格式。它基于 ECMAScript（European Computer Manufacturers Association,  欧洲计算机协会制定的js规范）的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。</span></p><p><span>简洁和清晰的层次结构使得 JSON  成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。</span></p><p>&nbsp;</p><h2 id='二json三种格式'><span>二、JSON三种格式</span></h2><p><span>JSON的顶层支持三种类型的值：</span></p><ul><li><p><span>简单值：数字（Number）、字符串（String，不支持单引号）、布尔类型（Boolean）、null类型；</span></p></li><li><p><span>对象值：由key、value组成，key是字符串类型，并且必须添加双引号，值可以是简单值、对象值、数组值；</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">"key1":  "value1",</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">"key2": "value2",</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">....</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p>&nbsp;</p></li><li><p><span>数组值：数组的值可以是简单值、对象值、数组值；</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{"key1": "value1"},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{"key2": "value2"}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">]</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre></li></ul><p>&nbsp;</p><p><strong><span>实例</span></strong></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="json" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-property">#json对象</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"name"</span>: <span class="cm-string">"hhh"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"age"</span>: <span class="cm-number">18</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"friend"</span>: {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"name"</span>: <span class="cm-string">"sam"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-property">#json数组</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-number">234</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string">"abc"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"name"</span>: <span class="cm-string">"amy"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">]</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 369px;"></div><div class="CodeMirror-gutters" style="display: none; height: 369px;"></div></div></div></pre><p>&nbsp;</p><h2 id='三python的json解析'><span>三、python的json解析</span></h2><p><span>由于json格式是一种字符串格式，处理获取数据不方便，一般我们会将json转换为python中的列表或者字典来处理</span></p><p><span>使用 JSON 函数需要导入 json 库：</span><strong><span>import json</span></strong><span>。</span></p><p><img src="data:image/png;base64,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" referrerpolicy="no-referrer" alt="image-20220920082430908"></p><p>&nbsp;</p><h3 id='jsondumps'><span>json.dumps</span></h3><p><span>json.dumps 用于将 Python 对象编码成 JSON 字符串。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">data</span> <span class="cm-operator">=</span> [ { <span class="cm-string">'a'</span> : <span class="cm-number">1</span>, <span class="cm-string">'b'</span> : <span class="cm-number">2</span>, <span class="cm-string">'c'</span> : <span class="cm-number">3</span>, <span class="cm-string">'d'</span> : <span class="cm-number">4</span>, <span class="cm-string">'e'</span> : <span class="cm-number">5</span> } ] <span class="cm-comment">#列表</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">data2</span> <span class="cm-operator">=</span> <span class="cm-variable">json</span>.<span class="cm-property">dumps</span>(<span class="cm-variable">data</span>) <span class="cm-comment">#转为json字符串</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">data2</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-builtin">type</span>(<span class="cm-variable">data2</span>))</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 161px;"></div><div class="CodeMirror-gutters" style="display: none; height: 161px;"></div></div></div></pre><blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[{"a": 1, "b": 2, "c": 3, "d": 4, "e": 5}]</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;class 'str'&gt;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></blockquote><p>&nbsp;</p><h3 id='jsonloads'><span>json.loads</span></h3><p><span>json.loads 用于解码 JSON 数据。该函数返回 Python 字段的数据类型。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jsonData</span> <span class="cm-operator">=</span> <span class="cm-string">'{"a":1,"b":2,"c":3,"d":4,"e":5}'</span> <span class="cm-comment">#json字符串</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">text</span> <span class="cm-operator">=</span> <span class="cm-variable">json</span>.<span class="cm-property">loads</span>(<span class="cm-variable">jsonData</span>) <span class="cm-comment">#转换为列表或者字典</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">text</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-builtin">type</span>(<span class="cm-variable">text</span>))</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 161px;"></div><div class="CodeMirror-gutters" style="display: none; height: 161px;"></div></div></div></pre><blockquote><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;class 'dict'&gt;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></blockquote><p>&nbsp;</p><p>&nbsp;</p><h2 id='四综合案例'><span>四、综合案例</span></h2><p><strong><span>案例一：北京新发地数据解析</span></strong></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">requests</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">csv</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-variable">url</span> <span class="cm-operator">=</span> <span class="cm-string">'<span class="cm-tab" role="presentation" cm-text="	"> </span>http://www.xinfadi.com.cn/getPriceData.html'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#参数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">da</span><span class="cm-operator">=</span>{</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"limit"</span>:<span class="cm-string">"20"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"current"</span>:<span class="cm-string">"1"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"pubDateStartTime"</span>:<span class="cm-string">""</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"pubDateEndTime"</span>:<span class="cm-string">""</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"prodPcatid"</span>:<span class="cm-string">"1186"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"prodCatid"</span>:<span class="cm-string">"1199"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"prodName"</span>:<span class="cm-string">""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#反扒头</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">dict</span> <span class="cm-operator">=</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"User-Agent"</span>: <span class="cm-string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">resp</span> <span class="cm-operator">=</span> <span class="cm-variable">requests</span>.<span class="cm-property">post</span>(<span class="cm-variable">url</span>,<span class="cm-variable">data</span><span class="cm-operator">=</span><span class="cm-variable">da</span>,<span class="cm-variable">headers</span><span class="cm-operator">=</span><span class="cm-builtin">dict</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">resp</span>.<span class="cm-property">encoding</span><span class="cm-operator">=</span><span class="cm-string">"utf-8"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">data</span> <span class="cm-operator">=</span> <span class="cm-variable">json</span>.<span class="cm-property">loads</span>(<span class="cm-variable">resp</span>.<span class="cm-property">text</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">results</span> <span class="cm-operator">=</span> []</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">item</span> <span class="cm-keyword">in</span> <span class="cm-variable">data</span>.<span class="cm-property">get</span>(<span class="cm-string">"list"</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">results</span>.<span class="cm-property">append</span>([<span class="cm-variable">item</span>.<span class="cm-property">get</span>(<span class="cm-string">"prodName"</span>),<span class="cm-variable">item</span>[<span class="cm-string">"prodCat"</span>],<span class="cm-variable">item</span>[<span class="cm-string">"prodPcat"</span>],<span class="cm-variable">item</span>[<span class="cm-string">"lowPrice"</span>],<span class="cm-variable">item</span>[<span class="cm-string">"highPrice"</span>],<span class="cm-variable">item</span>[<span class="cm-string">"avgPrice"</span>]])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">with</span> <span class="cm-builtin">open</span>(<span class="cm-string">"新发地.csv"</span>,<span class="cm-string">"w"</span>,<span class="cm-variable">encoding</span><span class="cm-operator">=</span><span class="cm-string">"utf-8"</span>,<span class="cm-variable">newline</span><span class="cm-operator">=</span><span class="cm-string">""</span>) <span class="cm-keyword">as</span> <span class="cm-variable">f</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">w</span> <span class="cm-operator">=</span> <span class="cm-variable">csv</span>.<span class="cm-property">writer</span>(<span class="cm-variable">f</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">w</span>.<span class="cm-property">writerows</span>(<span class="cm-variable">results</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">resp</span>.<span class="cm-property">close</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 922px;"></div><div class="CodeMirror-gutters" style="display: none; height: 922px;"></div></div></div></pre><p>&nbsp;</p><p><strong><span>案例二 豆瓣电影排行榜</span></strong></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">requests</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">csv</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-variable">url</span> <span class="cm-operator">=</span> <span class="cm-string">'<span class="cm-tab" role="presentation" cm-text="	"> </span>https://movie.douban.com/j/chart/top_list'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#参数</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">data</span><span class="cm-operator">=</span>{</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"type"</span>:<span class="cm-string">"17"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"interval_id"</span>:<span class="cm-string">"100:90"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"action"</span>:<span class="cm-string">""</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"start"</span>:<span class="cm-number">0</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">"limit"</span>:<span class="cm-string">"20"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#反扒头</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">dict</span> <span class="cm-operator">=</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"User-Agent"</span>: <span class="cm-string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">results</span> <span class="cm-operator">=</span> []</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#循环拉取10页数据</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">10</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">resp</span> <span class="cm-operator">=</span> <span class="cm-variable">requests</span>.<span class="cm-property">get</span>(<span class="cm-variable">url</span>,<span class="cm-variable">params</span><span class="cm-operator">=</span><span class="cm-variable">data</span>,<span class="cm-variable">headers</span><span class="cm-operator">=</span><span class="cm-builtin">dict</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">resp</span>.<span class="cm-property">encoding</span><span class="cm-operator">=</span><span class="cm-string">"utf-8"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">lst</span> <span class="cm-operator">=</span> <span class="cm-variable">json</span>.<span class="cm-property">loads</span>(<span class="cm-variable">resp</span>.<span class="cm-property">text</span>) <span class="cm-comment">#转为列表</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">item</span> <span class="cm-keyword">in</span> <span class="cm-variable">lst</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">results</span>.<span class="cm-property">append</span>([<span class="cm-variable">item</span>.<span class="cm-property">get</span>(<span class="cm-string">"title"</span>),<span class="cm-variable">item</span>.<span class="cm-property">get</span>(<span class="cm-string">"score"</span>),<span class="cm-variable">item</span>.<span class="cm-property">get</span>(<span class="cm-string">"url"</span>)])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">data</span>[<span class="cm-string">"start"</span>] <span class="cm-operator">=</span> <span class="cm-variable">data</span>.<span class="cm-property">get</span>(<span class="cm-string">"start"</span>, <span class="cm-number">0</span>) <span class="cm-operator">+</span> <span class="cm-number">20</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">with</span> <span class="cm-builtin">open</span>(<span class="cm-string">"豆瓣.csv"</span>,<span class="cm-string">"w"</span>,<span class="cm-variable">encoding</span><span class="cm-operator">=</span><span class="cm-string">"utf-8"</span>,<span class="cm-variable">newline</span><span class="cm-operator">=</span><span class="cm-string">""</span>) <span class="cm-keyword">as</span> <span class="cm-variable">f</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">w</span> <span class="cm-operator">=</span> <span class="cm-variable">csv</span>.<span class="cm-property">writer</span>(<span class="cm-variable">f</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">w</span>.<span class="cm-property">writerows</span>(<span class="cm-variable">results</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">resp</span>.<span class="cm-property">close</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1014px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1014px;"></div></div></div></pre><p>&nbsp;</p></div></div>
+</body>
+</html>
